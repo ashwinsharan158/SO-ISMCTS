@@ -34,12 +34,15 @@ Terminologies used in the section related to the concempts:
 * <b>Information set</b>: It is a set of all possible states for a partially observable environment it is used by determinization for creating trees. 
 
 To overcome the problems associated with the determinization approach, we propose searching a single tree whose nodes correspond to information sets rather than states. In single-observer information set MCTS (SO-ISMCTS), nodes in the tree correspond to information sets from the root player’s point of view, and edges correspond to actions (i.e., moves from the point of view of the player who plays them). The correspondence between nodes and information sets is not one–one: partially observable opponent moves that are indistinguishable to the root player have separate edges in the tree, and thus the resulting information set has several nodes in the tree.
+
 ![alt_text][image1]
 
 ## Experiments
 For the first part of this experiment we test how it performs against the random agent and greedy agent for creating a tree with 1000 node possible moves for each game state, where we play a total of 400 games to assess its performance. It makes sense for the scope of this experiment because 
 This experiment is cogent as it should show signs of learning and should give a fair win-percentage.
+
 ![alt_text][image2]
+
 The above experiment was completed 2hrs 13 mins due the the large number of games and and each step of the game required a tree to be created with a 1000 nodes. According to the table we have good cribbage agent as it at least or around 50% of the time, as some of the best players in history will have win percentages over 55% because of the random nature of the game. 
 Now two avenues were explored:
 
@@ -48,7 +51,9 @@ Now two avenues were explored:
 
 For this part of the experiment we only make use of the random agent to create a baseline.
 <b>Changing the UCB</b> For purpose of the experiment we remove the exploration portion of the UCB where we had 
+
 ![alt_text][image3]
+
 instead, in an effort to maximize rewarding branch non-zero visited branch. We ran this for 400 games and with a tree node size of 1000. In the results it was found due to the loss of exploration of non-zero visited node there was decline in win percentage against the random player to 45.33%.
 <b>Increasing the number of nodes</b> For this part of the experiment we try increase the number of node to see if better performance can be yielded. Hence we increase the number of node to 10000 for 300 games to see if the win percentage increases. Result, caused a win rate of 62% with a run time of 14hrs.
 
